@@ -14,6 +14,14 @@ const routes: Routes = [
     redirectTo: '/home'
   
   },
+  {
+    path: 'security',
+    loadChildren: () => import('./modules/security/security.module').then(m => m.SecurityModule)
+  },
+  {
+    path: 'parameters',
+    loadChildren: () => import('./modules/parameters/parameters.module').then(m => m.ParametersModule)
+  },
 
   /**this must be the last one*/
   {

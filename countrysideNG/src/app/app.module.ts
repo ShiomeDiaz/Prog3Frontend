@@ -8,7 +8,7 @@ import { NavbarComponent } from './public/master-page/navbar/navbar.component';
 import { SideMenuComponent } from './public/master-page/side-menu/side-menu.component';
 import { HeroComponent } from './public/master-page/hero/hero.component';
 import { FooterComponent } from './public/master-page/footer/footer.component';
-import { LoginComponent } from './modules/security/login/login.component';
+/*import { LoginComponent } from './modules/security/login/login.component';*/
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { LoginComponent } from './modules/security/login/login.component';
     SideMenuComponent,
     HeroComponent,
     FooterComponent,
-    LoginComponent
+    /*LoginComponent*/
   ],
   imports: [
     BrowserModule,
