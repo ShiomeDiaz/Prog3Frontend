@@ -8,6 +8,7 @@ import { NavbarComponent } from './public/master-page/navbar/navbar.component';
 import { SideMenuComponent } from './public/master-page/side-menu/side-menu.component';
 import { HeroComponent } from './public/master-page/hero/hero.component';
 import { FooterComponent } from './public/master-page/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 /*import { LoginComponent } from './modules/security/login/login.component';*/
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FooterComponent } from './public/master-page/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'parameters',
     loadChildren: () => import('./modules/parameters/parameters.module').then(m => m.ParametersModule)
   },
+  {
+    path: 'client',
+    loadChildren: () => import('./modules/client/client.module').then(m => m.ClientModule)
+  },
 
   /**this must be the last one*/
   {
