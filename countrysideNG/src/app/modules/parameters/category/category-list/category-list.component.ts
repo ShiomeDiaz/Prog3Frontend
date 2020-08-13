@@ -4,9 +4,11 @@ import {CategoryService} from '../../../../services/parameters/category.service'
 
 import { FormsConfig } from 'src/app/config/forms-config';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Router, ActivatedRoute } from '@angular/router';
 
 declare const showMessage: any;
 declare const showRemoveConfirmationWindow: any;
+declare const closeModal: any;
 
 @Component({
   selector: 'app-category-list',
@@ -17,10 +19,13 @@ export class CategoryListComponent implements OnInit {
   page: number = 1;
   itemsPageAmount: number = FormsConfig.ITEMS_PER_PAGE;
   recordList: CategoryModel[];
+  idToRemove: String = '';
 
   constructor(
     private service: CategoryService,
-    private spinner: NgxSpinnerService) { }
+    private spinner: NgxSpinnerService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.spinner.show();
@@ -39,13 +44,31 @@ export class CategoryListComponent implements OnInit {
         }, 1000);
       },
       error =>{
-        showMessage("There os an error with backend communication.");
+        showMessage("There is an error with backend communication.");
       }
     );
 
   }
-  RemoveConfirmation(){
+  RemoveConfirmation(id){
+    this.idToRemove = id;
     showRemoveConfirmationWindow();
+
+  }
+  RemoveRecord(){
+    closeModal('removeConfirmationModal');
+    if(this.idToRemove){
+      this.service.DeleteRecord(this.idToRemove).subscribe(
+        data =>{
+          this.idToRemove = '';
+          showMessage(" Record update succesfuly");
+          this.fillRecords();
+
+        },
+        error =>{
+          showMessage("There is an error with backend communication.");
+        }
+      );
+    }
 
   }
 

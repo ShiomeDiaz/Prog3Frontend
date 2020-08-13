@@ -21,6 +21,9 @@ export class CategoryService {
   getAllRecords(): Observable<CategoryModel[]>{
     return this.http.get<CategoryModel[]>(`${ServiceConfig.BASE_URL}${this.entity}`);
   }
+  getRecordById(id: String): Observable<CategoryModel>{
+    return this.http.get<CategoryModel>(`${ServiceConfig.BASE_URL}${this.entity}/${id}`);
+  }
 
 
   /**
@@ -36,16 +39,18 @@ export class CategoryService {
     });
   }
   EditRecord(record: CategoryModel):Observable<CategoryModel>{
-    return this.http.put<CategoryModel>(`${ServiceConfig.BASE_URL}${this.entity}`, record, {
+    return this.http.put<CategoryModel>(`${ServiceConfig.BASE_URL}${this.entity}/${record.id}`, record, {
       headers: new HttpHeaders({
-        Authorization: `Bearer ${this.token}`
+        'Content-Type':'application/json',
+        'Authorization': `Bearer ${this.token}`
       })
     });
   }
   DeleteRecord(recordId: String):Observable<any>{
     return this.http.delete(`${ServiceConfig.BASE_URL}${this.entity}/${recordId}`,{
       headers: new HttpHeaders({
-        Authorization: `Bearer ${this.token}`
+        'Content-Type':'application/json',
+        'Authorization': `Bearer ${this.token}`
       })
     });
   }
