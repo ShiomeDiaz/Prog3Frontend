@@ -46,16 +46,16 @@
                 </div>
                 <div class="input-field col s5">
                     <i class="material-icons prefix">phone_android</i>
-                    <input formControlName ="numberPhone" id="cellphone" type="text" >
+                    <input formControlName ="phone" id="cellphone" type="text" >
                     <label for="cellphone">Cellphone</label>
-                    <div class="warning-validator" *ngIf="fgv.numberPhone.errors && (fgv.numberPhone.dirty || fgv.numberPhone.touched)">
-                        <strong *ngIf = "fgv.numberPhone.errors.required">
+                    <div class="warning-validator" *ngIf="fgv.phone.errors && (fgv.phone.dirty || fgv.phone.touched)">
+                        <strong *ngIf = "fgv.phone.errors.required">
                             This field is required.
                         </strong>
-                        <strong *ngIf = "fgv.numberPhone.errors.minlength">
+                        <strong *ngIf = "fgv.phone.errors.minlength">
                             This field must be at least {{numberMinLength}} long.
                         </strong>
-                        <strong *ngIf = "fgv.numberPhone.errors.maxlength">
+                        <strong *ngIf = "fgv.phone.errors.maxlength">
                             This field must be maximum {{numberMaxLength}} long.
                         </strong>
                     </div>

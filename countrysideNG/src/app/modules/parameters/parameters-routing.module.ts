@@ -19,7 +19,7 @@ const routes: Routes = [
 
   },
   {
-    path: 'category-edition',
+    path: 'category-edition/:id',
     component: CategoryEditionComponent
 
   },

@@ -16,3 +16,8 @@
      font-size: large; 
 
  }
+ .warning-validator strong{
+    color: red;
+  }
+ 
+ 
