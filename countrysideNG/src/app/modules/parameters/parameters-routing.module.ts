@@ -33,7 +33,7 @@ const routes: Routes = [
 
   },
   {
-    path: 'brand-edition',
+    path: 'brand-edition/:id',
     component: BrandEditionComponent
 
   },
