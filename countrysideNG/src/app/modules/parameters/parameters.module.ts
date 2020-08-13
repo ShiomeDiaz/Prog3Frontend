@@ -9,13 +9,20 @@ import { CategoryRemoveComponent } from './category/category-remove/category-rem
 import { BrandCreationComponent } from './brand/brand-creation/brand-creation.component';
 import { BrandEditionComponent } from './brand/brand-edition/brand-edition.component';
 import { BrandListComponent } from './brand/brand-list/brand-list.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [CategoryCreationComponent, CategoryEditionComponent, CategoryListComponent, CategoryRemoveComponent, BrandCreationComponent, BrandEditionComponent, BrandListComponent],
   imports: [
     CommonModule,
-    ParametersRoutingModule
+    ParametersRoutingModule,
+    NgxPaginationModule,
+    NgxSpinnerModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ParametersModule { }
