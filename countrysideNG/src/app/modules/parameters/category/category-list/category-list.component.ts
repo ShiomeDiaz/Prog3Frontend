@@ -30,6 +30,10 @@ export class CategoryListComponent implements OnInit {
   ngOnInit(): void {
     this.spinner.show();
     this.fillRecords();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1000);
 
   }
 
@@ -38,10 +42,7 @@ export class CategoryListComponent implements OnInit {
       data =>{
         this.recordList = data;
         console.log(this.recordList);
-        setTimeout(() => {
-          /** spinner ends after 5 seconds */
-          this.spinner.hide();
-        }, 1000);
+        
       },
       error =>{
         showMessage("There is an error with backend communication.");
@@ -55,13 +56,14 @@ export class CategoryListComponent implements OnInit {
 
   }
   RemoveRecord(){
-    closeModal('removeConfirmationModal');
+    
     if(this.idToRemove){
       this.service.DeleteRecord(this.idToRemove).subscribe(
         data =>{
           this.idToRemove = '';
           showMessage(" Record update succesfuly");
           this.fillRecords();
+          closeModal('removeConfirmationModal');
 
         },
         error =>{
